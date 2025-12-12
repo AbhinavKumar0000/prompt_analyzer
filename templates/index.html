@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Quality Analyzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <div class="header-row">
+            <h1>PROMPT ANALYZER</h1>
+            <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="analyzer-card">
+            
+            <div class="input-col">
+                <span class="label">Input Prompt</span>
+                <textarea id="promptInput" placeholder="Paste your prompt text here for analysis..."></textarea>
+                <button id="analyzeBtn" onclick="analyzePrompt()">
+                    <span id="btnText">RUN ANALYSIS</span>
+                    <div class="spinner" id="btnSpinner"></div>
+                </button>
+            </div>
+
+            <div class="result-col">
+                <span class="label">Analysis Result</span>
+                
+                <div class="chart-wrapper">
+                    <canvas id="scoreChart"></canvas>
+                    <div class="score-overlay">
+                        <div class="score-number" id="finalScore">0</div>
+                        <div class="score-text">Quality Score</div>
+                    </div>
+                </div>
+
+                <div class="status-pill" id="statusPill">Status: Idle</div>
+
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value" id="bertScore">-</div>
+                        <div class="metric-label">BERT-BASE</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value" id="llmScore">-</div>
+                        <div class="metric-label">SEMANTIC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-specs">
+            <div class="spec-box">
+                <div class="spec-title">Architecture</div>
+                <div class="spec-content">Hybrid Ensemble using a fine-tuned BERT Encoder and Mistral-7B Decoder.</div>
+            </div>
+            <div class="spec-box">
+                <div class="spec-title">Methodology</div>
+                <div class="spec-content">Weighted Aggregation (Weights: 65/35) of Regression Loss and Semantic Rubric.</div>
+            </div>
+            <div class="spec-box">
+                <div class="spec-title">Optimization</div>
+                <div class="spec-content">Low-latency Gatekeeper rejects sub-30 inputs to minimize compute load.</div>
+            </div>
+            <div class="spec-box">
+                <div class="spec-title">Vectors</div>
+                <div class="spec-content">Evaluated on Clarity, Specificity, Context, Constraints, Complexity, and Goal Alignment.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
