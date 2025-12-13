@@ -62,19 +62,19 @@
         <div class="tech-specs">
             <div class="spec-box">
                 <div class="spec-title">Architecture</div>
-                <div class="spec-content">Hybrid Ensemble using a fine-tuned BERT Encoder and Mistral-7B Decoder.</div>
+                <div class="spec-content">Multi-Stage Pipeline: Heuristic Filter → BERT Encoder (Structure) → Mistral-7B (Intent & Logic).</div>
             </div>
             <div class="spec-box">
                 <div class="spec-title">Methodology</div>
-                <div class="spec-content">Weighted Aggregation (Weights: 65/35) of Regression Loss and Semantic Rubric.</div>
+                <div class="spec-content">Probabilistic Intent Classification combined with Weighted Aggregation (30% BERT / 70% LLM).</div>
             </div>
             <div class="spec-box">
                 <div class="spec-title">Optimization</div>
-                <div class="spec-content">Low-latency Gatekeeper rejects sub-30 inputs to minimize compute load.</div>
+                <div class="spec-content">Smart "Trapdoor" Logic rejects non-instructional content (e.g., pure text/poems) to ensure relevance.</div>
             </div>
             <div class="spec-box">
                 <div class="spec-title">Vectors</div>
-                <div class="spec-content">Evaluated on Clarity, Specificity, Context, Constraints, Complexity, and Goal Alignment.</div>
+                <div class="spec-content">Evaluated on Intent Strength, Role Definition, Clarity, Specificity, Context, and Complexity.</div>
             </div>
         </div>
 

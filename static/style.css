@@ -14,14 +14,15 @@
 }
 
 [data-theme="dark"] {
-    /* Dark Mode */
-    --bg-body: #0f172a;
-    --bg-card: #1e293b;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --border-color: #334155;
-    --accent-color: #3b82f6;
-    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    /* Professional Dark Mode (Deep Charcoal) */
+    --bg-body: #0a0a0a;       /* Almost black, but softer */
+    --bg-card: #171717;       /* Dark grey card for depth */
+    --text-primary: #ededed;  /* Off-white (easier on eyes) */
+    --text-secondary: #a1a1aa; /* Muted grey */
+    --text-inverse: #ffffff;   /* Keep button text white */
+    --border-color: #262626;  /* Subtle borders */
+    --accent-color: #2563eb;  /* Bright Blue for buttons (pops on dark) */
+    --shadow: 0 0 0 1px #262626;
 }
 
 * { box-sizing: border-box; transition: background-color 0.2s, border-color 0.2s; }
